@@ -1,1 +1,1 @@
-console.log("hi");
+(()=>{"use strict";console.log("hi");console.table({title:"task",description:"dddddddddddddd",dueDate:20,priority:"low",checked:!1})})();

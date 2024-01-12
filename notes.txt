@@ -17,3 +17,13 @@ FIRST LOAD:
                 delete
                 changePrio
                 closeBack
+
+
+0. index:
+    project array (2. created projects stored here ig)
+        todos stored inside one?
+
+1. todo creator factory (properties too)
+
+2. project creator factory
+
