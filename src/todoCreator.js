@@ -1,5 +1,5 @@
 export default function todoCreator(title, description, dueDate, priority) {
-	const checked = false;
+	const completed = false;
 
-	return { title, description, dueDate, priority, checked };
+	return { title, description, dueDate, priority, completed };
 }
