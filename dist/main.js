@@ -1,1 +1,1 @@
-(()=>{"use strict";console.log("hi");console.table({title:"task",description:"dddddddddddddd",dueDate:20,priority:"low",checked:!1})})();
+(()=>{"use strict";function e(e,d,t,o){return{title:e,description:d,dueDate:t,priority:o,checked:!1}}const d=e("task1","dddddddddddddd",20,"low"),t=e("task2","eeeeeeeeeee",23,"high"),o={name:"Default Project",todos:[]};o.todos.push(d,t),console.log(o)})();
