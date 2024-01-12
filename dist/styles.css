@@ -1,0 +1,31 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+body {
+	background-color: lightblue;
+	padding: 10px;
+	min-height: 1svh;
+}
+
+.project-title {
+	font-weight: bold;
+	font-size: 1.7rem;
+}
+
+.project-card {
+	display: grid;
+	gap: 10px;
+	justify-items: center;
+}
+
+.todo-card {
+	display: grid;
+	grid-auto-flow: column;
+	gap: 10px;
+	border: blue solid 2px;
+	padding: 5px;
+	box-shadow: darkblue 1px 1px 1px 1px;
+}
