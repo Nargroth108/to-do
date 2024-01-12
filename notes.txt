@@ -1,0 +1,19 @@
+FIRST LOAD:
+    Header
+    +Project
+
+    Default Project
+        +Task
+
+        Default Task (color based on prio = green, white, red)
+            title
+            date
+            check (to end of project, yellow)
+
+            ExpandBtn
+                title, date, check+
+                description
+                edit
+                delete
+                changePrio
+                closeBack
