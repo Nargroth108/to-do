@@ -23,3 +23,5 @@ console.log(projects);
 loadPageElements(projects);
 
 // deleteItem(defaultProject.todos, task3);
+
+export default projects;

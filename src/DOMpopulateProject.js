@@ -1,6 +1,9 @@
 import ExpandIcon from './expand.svg';
 import EditIcon from './edit.svg';
 import DeleteIcon from './delete.svg';
+import CloseIcon from './up.svg';
+import { loadPageElements, deletePageElements } from './DOMpageManagement';
+import projects from './index.js';
 
 export default function populateProject(object) {
 	const arrayOfObject = Object.values(object);
@@ -74,7 +77,36 @@ export default function populateProject(object) {
 		icon1.classList.add('expand-button');
 		subButton1.appendChild(icon1);
 		subButton1.addEventListener('click', () => {
-			console.log('tba');
+			subButton1.disabled = true;
+
+			subCard.setAttribute(
+				'style',
+				'grid-auto-flow: row; background: lightblue'
+			);
+
+			subCard.lastChild.remove;
+			subCard.lastChild.remove;
+
+			const subDescription = document.createElement('p');
+			subDescription.innerText = arrayOfSubObject[4];
+			subCard.appendChild(subDescription);
+
+			subCard.appendChild(subDate);
+
+			subButtonContainer.setAttribute('style', 'justify-content: center');
+			const closeButton = document.createElement('button');
+			closeButton.classList.add('sub-button');
+			const closeIcon = new Image();
+			closeIcon.src = CloseIcon;
+			closeButton.appendChild(closeIcon);
+			subButtonContainer.appendChild(closeButton);
+			subCard.appendChild(subButtonContainer);
+
+			closeButton.addEventListener('click', () => {
+				subButton1.disabled = false;
+				deletePageElements();
+				loadPageElements(projects);
+			});
 		});
 		subButtonContainer.appendChild(subButton1);
 

@@ -22,7 +22,6 @@ function loadPageElements(storage) {
 }
 
 function deletePageElements() {
-	console.log('test');
 	const DOMBODY = document.querySelector('body');
 	while (DOMBODY.firstChild) {
 		DOMBODY.removeChild(DOMBODY.lastChild);
