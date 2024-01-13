@@ -1,31 +1,35 @@
-export default function populateProject(project) {
+export default function populateProject(object) {
+	const arrayOfObject = Object.values(object);
+
 	const DOMBODY = document.querySelector('body');
 
-	const projectCard = document.createElement('div');
-	projectCard.classList.add('project-card');
+	const mainCard = document.createElement('div');
+	mainCard.classList.add('main-card');
 
-	const projectTitle = document.createElement('div');
-	projectTitle.classList.add('project-title');
-	projectTitle.innerText = project.name;
-	projectCard.appendChild(projectTitle);
-	DOMBODY.appendChild(projectCard);
+	const mainTitle = document.createElement('div');
+	mainTitle.classList.add('main-title');
+	mainTitle.innerText = arrayOfObject[0];
+	mainCard.appendChild(mainTitle);
 
-	project.todos.forEach((todo) => {
-		const todoCard = document.createElement('div');
-		todoCard.classList.add('todo-card');
+	DOMBODY.appendChild(mainCard);
 
-		const todoTitle = document.createElement('input');
-		todoTitle.setAttribute('type', 'text');
-		todoTitle.value = todo.title;
-		todoTitle.disabled = true;
-		todoCard.appendChild(todoTitle);
+	//Displays every object stored in the second property of the main object
+	arrayOfObject[1].forEach((subObject) => {
+		const arrayOfSubObject = Object.values(subObject);
 
-		const todoDate = document.createElement('input');
-		todoDate.setAttribute('type', 'date');
-		todoDate.value = todo.dueDate;
-		todoDate.disabled = true;
-		todoCard.appendChild(todoDate);
+		const subCard = document.createElement('div');
+		subCard.classList.add('sub-card');
 
-		projectCard.appendChild(todoCard);
+		const subTitle = document.createElement('p');
+		subTitle.classList.add('sub-title');
+		subTitle.innerText = arrayOfSubObject[0];
+		subCard.appendChild(subTitle);
+
+		const subDate = document.createElement('p');
+		subDate.classList.add('sub-date');
+		subDate.innerText = arrayOfSubObject[1];
+		subCard.appendChild(subDate);
+
+		mainCard.appendChild(subCard);
 	});
 }

@@ -10,18 +10,18 @@ body {
 	min-height: 1svh;
 }
 
-.project-title {
+.main-title {
 	font-weight: bold;
 	font-size: 1.7rem;
 }
 
-.project-card {
+.main-card {
 	display: grid;
 	gap: 10px;
 	justify-items: center;
 }
 
-.todo-card {
+.sub-card {
 	display: grid;
 	grid-auto-flow: column;
 	gap: 10px;
