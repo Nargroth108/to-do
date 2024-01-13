@@ -1,5 +1,5 @@
-export default function todoCreator(title, description, dueDate, priority) {
+export default function todoCreator(title, dueDate, priority, description) {
 	const completed = false;
 
-	return { title, dueDate, description, priority, completed };
+	return { completed, title, dueDate, priority, description };
 }
