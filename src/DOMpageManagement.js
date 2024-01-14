@@ -1,9 +1,10 @@
 import populateProject from './DOMpopulateProject';
+import projectCreator from './projectCreator';
 
 export { loadPageElements, deletePageElements };
 
 function loadPageElements(storage) {
-	const DOMBODY = document.querySelector('body');
+	const DOMBODY = document.querySelector('.container');
 
 	const header = document.createElement('header');
 	header.classList.add('page-header');
@@ -12,7 +13,11 @@ function loadPageElements(storage) {
 	const addCollectionButton = document.createElement('button');
 	addCollectionButton.classList.add('add-collection-button');
 	addCollectionButton.addEventListener('click', () => {
-		console.log('tba');
+		const titleInput = prompt('What do you want to name the new collection?');
+		let newProject = projectCreator(titleInput);
+		storage.push(newProject);
+		deletePageElements();
+		loadPageElements(storage);
 	});
 	DOMBODY.appendChild(addCollectionButton);
 
@@ -42,7 +47,7 @@ function loadPageElements(storage) {
 }
 
 function deletePageElements() {
-	const DOMBODY = document.querySelector('body');
+	const DOMBODY = document.querySelector('.container');
 	while (DOMBODY.firstChild) {
 		DOMBODY.removeChild(DOMBODY.lastChild);
 	}

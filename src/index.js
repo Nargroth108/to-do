@@ -6,15 +6,15 @@ let projects = [];
 
 const defaultProject = projectCreator('Default Project');
 
-const task1 = createItem('task1', '2023-12-24', 'low', 'dddddddddddddd');
-const task2 = createItem('task2', '2024-01-20', 'medium', 'eeeeeeeeeee');
-const task3 = createItem('task3', '2025-11-10', 'high', 'bbbbbbbbbbb');
+const task1 = createItem('task1', '2023-12-24', 'Low', 'dddddddddddddd');
+const task2 = createItem('task2', '2024-01-20', 'Medium', 'eeeeeeeeeee');
+const task3 = createItem('task3', '2025-11-10', 'High', 'bbbbbbbbbbb');
 defaultProject.todos.push(task1, task2, task3);
 console.table(defaultProject);
 projects.push(defaultProject);
 
 const ts = projectCreator('ts');
-const t1 = createItem('t1', '2021-02-03', 'low', 'ddsdcsdfae');
+const t1 = createItem('t1', '2021-02-03', 'Low', 'ddsdcsdfae');
 ts.todos.push(t1);
 projects.push(ts);
 console.log(projects);

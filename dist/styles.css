@@ -8,6 +8,8 @@ body {
 	background-color: lightblue;
 	padding: 10px;
 	min-height: 1svh;
+}
+.container {
 	display: grid;
 	justify-items: center;
 	gap: 20px;
@@ -18,7 +20,7 @@ body {
 	font-size: 1.8rem;
 	background-color: mediumaquamarine;
 	margin-top: -10px;
-	width: 110%;
+	width: 101%;
 	padding: 20px;
 	border-bottom: midnightblue solid 2px;
 }
@@ -118,4 +120,28 @@ body {
 	align-items: center;
 	border: blue solid 1.5px;
 	background-color: mediumaquamarine;
+}
+
+label input,
+label select {
+	display: block;
+}
+
+dialog {
+	margin: auto;
+	padding: 2rem;
+	border-color: black;
+	background-color: mediumaquamarine;
+}
+
+.dialog-div {
+	display: grid;
+	gap: 10px;
+	margin-bottom: 50px;
+}
+form p {
+	display: grid;
+	grid-auto-flow: column;
+	gap: 20px;
+	width: 100%;
 }

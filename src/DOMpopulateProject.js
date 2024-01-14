@@ -3,13 +3,13 @@ import EditIcon from './edit.svg';
 import DeleteIcon from './delete.svg';
 import CloseIcon from './up.svg';
 import { loadPageElements, deletePageElements } from './DOMpageManagement';
-// import { deleteProject } from './DOMeventListeners.js';
+import { createItem } from './todo-logic.js';
 import projects from './index.js';
 
 export default function populateProject(object) {
 	const arrayOfObject = Object.values(object);
 
-	const DOMBODY = document.querySelector('body');
+	const DOMBODY = document.querySelector('.container');
 
 	const mainCard = document.createElement('div');
 	mainCard.classList.add('main-card');
@@ -25,7 +25,28 @@ export default function populateProject(object) {
 	const addItemButton = document.createElement('button');
 	addItemButton.classList.add('add-item-button');
 	addItemButton.addEventListener('click', () => {
-		console.log('tba');
+		const dialog = document.getElementById('dialog');
+		const submitBtn = document.getElementById('submit-button');
+		dialog.showModal();
+
+		submitBtn.addEventListener('click', (event) => {
+			event.preventDefault();
+			const titleInput = document.getElementById('title-input').value;
+			const dateInput = document.getElementById('date-input').value;
+			const priorityInput = document.getElementById('priority-input').value;
+			const descriptionInputInput =
+				document.getElementById('description-input').value;
+			let newTodo = createItem(
+				titleInput,
+				dateInput,
+				priorityInput,
+				descriptionInputInput
+			);
+			object.todos.push(newTodo);
+			deletePageElements();
+			loadPageElements(projects);
+			dialog.close();
+		});
 	});
 	mainButtonContainer.appendChild(addItemButton);
 
@@ -86,9 +107,9 @@ export default function populateProject(object) {
 		subButtonContainer.classList.add('sub-button-container');
 
 		const subPrio = arrayOfSubObject[3];
-		if (subPrio === 'low') {
+		if (subPrio === 'Low') {
 			subCard.setAttribute('style', 'background: antiquewhite');
-		} else if (subPrio === 'medium') {
+		} else if (subPrio === 'Medium') {
 			subCard.setAttribute('style', 'background: silver');
 		} else {
 			subCard.setAttribute('style', 'background: gray');
