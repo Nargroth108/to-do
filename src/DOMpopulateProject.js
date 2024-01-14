@@ -112,8 +112,17 @@ export default function populateProject(object) {
 			subCard.lastChild.remove;
 
 			const subDescription = document.createElement('p');
+			subDescription.setAttribute('style', 'font-style: italic; padding: 20px');
 			subDescription.innerText = arrayOfSubObject[4];
 			subCard.appendChild(subDescription);
+
+			const subPriority = document.createElement('p');
+			subPriority.innerText = `Priority: ${arrayOfSubObject[3]}`;
+			subPriority.setAttribute(
+				'style',
+				'width: 100%; display: grid; justify-items: center'
+			);
+			subCard.appendChild(subPriority);
 
 			subCard.appendChild(subDate);
 
