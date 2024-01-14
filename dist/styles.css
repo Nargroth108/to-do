@@ -8,12 +8,11 @@ body {
 	background-color: lightblue;
 	padding: 10px;
 	min-height: 1svh;
-}
-.container {
 	display: grid;
 	justify-items: center;
 	gap: 20px;
 }
+
 .page-header {
 	display: grid;
 	justify-items: center;

@@ -5,11 +5,12 @@ import CloseIcon from './up.svg';
 import { loadPageElements, deletePageElements } from './DOMpageManagement';
 import { createItem } from './todo-logic.js';
 import projects from './index.js';
+// import { addProject, addTodo } from './addProject-and-todo.js';
 
 export default function populateProject(object) {
 	const arrayOfObject = Object.values(object);
 
-	const DOMBODY = document.querySelector('.container');
+	const DOMBODY = document.querySelector('body');
 
 	const mainCard = document.createElement('div');
 	mainCard.classList.add('main-card');
@@ -77,7 +78,6 @@ export default function populateProject(object) {
 		subCheckbox.classList.add('checkbox');
 		subCheckbox.value = arrayOfSubObject[0];
 		subCheckbox.addEventListener('click', () => {
-			console.log(object.todos[indexOfSubobject].completed);
 			if (object.todos[indexOfSubobject].completed === true) {
 				object.todos[indexOfSubobject].completed = false;
 			} else {

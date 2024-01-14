@@ -1,10 +1,11 @@
 import populateProject from './DOMpopulateProject';
 import projectCreator from './projectCreator';
+import loadDialog from './DOMloadDialog';
 
 export { loadPageElements, deletePageElements };
 
 function loadPageElements(storage) {
-	const DOMBODY = document.querySelector('.container');
+	const DOMBODY = document.querySelector('body');
 
 	const header = document.createElement('header');
 	header.classList.add('page-header');
@@ -41,13 +42,14 @@ function loadPageElements(storage) {
 				loadPageElements(storage);
 			}
 		});
+		loadDialog();
 
 		objectIndex++;
 	});
 }
 
 function deletePageElements() {
-	const DOMBODY = document.querySelector('.container');
+	const DOMBODY = document.querySelector('body');
 	while (DOMBODY.firstChild) {
 		DOMBODY.removeChild(DOMBODY.lastChild);
 	}
