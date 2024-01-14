@@ -16,10 +16,22 @@ function loadPageElements(storage) {
 	});
 	DOMBODY.appendChild(addCollectionButton);
 
-	// let objectIndex = 0;
+	let objectIndex = 0;
 	storage.forEach((object) => {
+		storage;
+		const currentIndex = objectIndex;
 		populateProject(object);
-		// objectIndex++;
+		const deleteProjectButtons = document.querySelectorAll(
+			'.delete-collection-button'
+		);
+		const currentButton = deleteProjectButtons[currentIndex];
+		currentButton.addEventListener('click', () => {
+			console.log(currentIndex);
+			storage.splice(currentIndex, 1);
+			deletePageElements();
+			loadPageElements(storage);
+		});
+		objectIndex++;
 	});
 }
 

@@ -1,6 +1,6 @@
 import { createItem } from './todo-logic';
 import projectCreator from './projectCreator';
-import { loadPageElements, deletePageElements } from './DOMpageManagement';
+import { loadPageElements } from './DOMpageManagement';
 
 let projects = [];
 
