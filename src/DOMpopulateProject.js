@@ -152,9 +152,11 @@ export default function populateProject(object) {
 		icon3.classList.add('delete-button');
 		subButton3.appendChild(icon3);
 		subButton3.addEventListener('click', () => {
-			object.todos.splice(indexOfSubobject, 1);
-			deletePageElements();
-			loadPageElements(projects);
+			if (window.confirm('Are you sure you want to delete this item?')) {
+				object.todos.splice(indexOfSubobject, 1);
+				deletePageElements();
+				loadPageElements(projects);
+			}
 		});
 		subButtonContainer.appendChild(subButton3);
 
