@@ -16,8 +16,10 @@ function loadPageElements(storage) {
 	});
 	DOMBODY.appendChild(addCollectionButton);
 
-	storage.forEach((item) => {
-		populateProject(item);
+	// let objectIndex = 0;
+	storage.forEach((object) => {
+		populateProject(object);
+		// objectIndex++;
 	});
 }
 

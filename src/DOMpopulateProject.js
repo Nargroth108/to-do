@@ -3,6 +3,7 @@ import EditIcon from './edit.svg';
 import DeleteIcon from './delete.svg';
 import CloseIcon from './up.svg';
 import { loadPageElements, deletePageElements } from './DOMpageManagement';
+// import { deleteProject } from './DOMeventListeners.js';
 import projects from './index.js';
 
 export default function populateProject(object) {
@@ -18,17 +19,29 @@ export default function populateProject(object) {
 	mainTitle.innerText = arrayOfObject[0];
 	mainCard.appendChild(mainTitle);
 
+	const mainButtonContainer = document.createElement('div');
+	mainButtonContainer.classList.add('main-button-container');
+
 	const addItemButton = document.createElement('button');
 	addItemButton.classList.add('add-item-button');
 	addItemButton.addEventListener('click', () => {
 		console.log('tba');
 	});
-	mainCard.appendChild(addItemButton);
+	mainButtonContainer.appendChild(addItemButton);
+
+	const deleteMainCard = document.createElement('button');
+	deleteMainCard.classList.add('delete-collection-button');
+	mainButtonContainer.appendChild(deleteMainCard);
+
+	mainCard.appendChild(mainButtonContainer);
 
 	DOMBODY.appendChild(mainCard);
 
-	//Displays every object stored in the second property of the main object
-	arrayOfObject[1].forEach((subObject) => {
+	const subObjects = arrayOfObject[1];
+
+	let subObjectIndex = 0;
+	subObjects.forEach((subObject) => {
+		const indexOfSubobject = subObjectIndex;
 		const arrayOfSubObject = Object.values(subObject);
 
 		const subCard = document.createElement('div');
@@ -40,10 +53,21 @@ export default function populateProject(object) {
 		const subCheckbox = document.createElement('input');
 		subCheckbox.setAttribute('type', 'checkbox');
 		subCheckbox.setAttribute('name', 'checkbox');
+		subCheckbox.classList.add('checkbox');
 		subCheckbox.value = arrayOfSubObject[0];
 		subCheckbox.addEventListener('click', () => {
-			console.log('tba');
+			console.log(object.todos[indexOfSubobject].completed);
+			if (object.todos[indexOfSubobject].completed === true) {
+				object.todos[indexOfSubobject].completed = false;
+			} else {
+				object.todos[indexOfSubobject].completed = true;
+			}
 		});
+		if (object.todos[indexOfSubobject].completed === false) {
+			subCheckbox.checked = false;
+		} else {
+			subCheckbox.checked = true;
+		}
 		subContainer.appendChild(subCheckbox);
 
 		const subTitle = document.createElement('p');
@@ -128,11 +152,15 @@ export default function populateProject(object) {
 		icon3.classList.add('delete-button');
 		subButton3.appendChild(icon3);
 		subButton3.addEventListener('click', () => {
-			console.log('tba');
+			object.todos.splice(indexOfSubobject, 1);
+			deletePageElements();
+			loadPageElements(projects);
 		});
 		subButtonContainer.appendChild(subButton3);
 
 		subCard.appendChild(subButtonContainer);
 		mainCard.appendChild(subCard);
+
+		subObjectIndex++;
 	});
 }

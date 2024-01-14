@@ -44,8 +44,15 @@ body {
 	width: clamp(400px, 100%, 800px);
 }
 
+.main-button-container {
+	display: flex;
+	justify-content: space-evenly;
+	width: 100%;
+}
+
 .add-item-button,
-.add-collection-button {
+.add-collection-button,
+.delete-collection-button {
 	padding: 3px 30px 3px 30px;
 	border-radius: 10px;
 	border: blue solid 4px;
@@ -56,6 +63,10 @@ body {
 
 .add-collection-button::after {
 	content: 'Add Project';
+	font-size: 1rem;
+}
+.delete-collection-button::after {
+	content: 'Delete Project';
 	font-size: 1rem;
 }
 .add-item-button::after {
