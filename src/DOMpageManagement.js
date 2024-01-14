@@ -20,17 +20,23 @@ function loadPageElements(storage) {
 	storage.forEach((object) => {
 		storage;
 		const currentIndex = objectIndex;
+
 		populateProject(object);
+
 		const deleteProjectButtons = document.querySelectorAll(
 			'.delete-collection-button'
 		);
 		const currentButton = deleteProjectButtons[currentIndex];
 		currentButton.addEventListener('click', () => {
-			console.log(currentIndex);
-			storage.splice(currentIndex, 1);
-			deletePageElements();
-			loadPageElements(storage);
+			if (
+				window.confirm('Are you sure you want to delete the whole project?')
+			) {
+				storage.splice(currentIndex, 1);
+				deletePageElements();
+				loadPageElements(storage);
+			}
 		});
+
 		objectIndex++;
 	});
 }
