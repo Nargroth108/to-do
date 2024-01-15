@@ -3,7 +3,8 @@ import projectCreator from './projectCreator';
 import { loadPageElements } from './DOMpageManagement';
 
 let projects;
-if (!JSON.parse(localStorage.getItem('projects'))) {
+
+if (!localStorage.getItem('projects')) {
 	projects = [];
 	const defaultProject = projectCreator('Default Project');
 

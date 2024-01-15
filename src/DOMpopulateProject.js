@@ -1,7 +1,7 @@
-import ExpandIcon from './expand.svg';
-import EditIcon from './edit.svg';
-import DeleteIcon from './delete.svg';
-import CloseIcon from './up.svg';
+import ExpandIcon from './images/expand.svg';
+import EditIcon from './images/edit.svg';
+import DeleteIcon from './images/delete.svg';
+import CloseIcon from './images/up.svg';
 import { loadPageElements, deletePageElements } from './DOMpageManagement';
 import { createItem } from './todo-logic.js';
 import projects from './index.js';

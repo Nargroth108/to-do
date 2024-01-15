@@ -39,7 +39,6 @@ function loadPageElements(storage) {
 				window.confirm('Are you sure you want to delete the whole project?')
 			) {
 				storage.splice(currentIndex, 1);
-				localStorage.setItem('projects', JSON.stringify(storage));
 				deletePageElements();
 				loadPageElements(storage);
 			}
