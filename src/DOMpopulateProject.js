@@ -35,13 +35,13 @@ export default function populateProject(object) {
 			const titleInput = document.getElementById('title-input').value;
 			const dateInput = document.getElementById('date-input').value;
 			const priorityInput = document.getElementById('priority-input').value;
-			const descriptionInputInput =
+			const descriptionInput =
 				document.getElementById('description-input').value;
 			let newTodo = createItem(
 				titleInput,
 				dateInput,
 				priorityInput,
-				descriptionInputInput
+				descriptionInput
 			);
 			object.todos.push(newTodo);
 			deletePageElements();
@@ -171,7 +171,42 @@ export default function populateProject(object) {
 		icon2.classList.add('edit-button');
 		subButton2.appendChild(icon2);
 		subButton2.addEventListener('click', () => {
-			console.log('tba');
+			console.log('under development');
+			const dialog = document.getElementById('dialog');
+			const submitBtn = document.getElementById('submit-button');
+
+			dialog.showModal();
+
+			document.getElementById('title-input').value = subObject.title;
+			document.getElementById('date-input').value = subObject.dueDate;
+			document.getElementById('priority-input').value = subObject.priority;
+			document.getElementById('description-input').value =
+				subObject.description;
+
+			submitBtn.addEventListener('click', (event) => {
+				event.preventDefault();
+
+				const titleInput = document.getElementById('title-input').value;
+				const dateInput = document.getElementById('date-input').value;
+				const priorityInput = document.getElementById('priority-input').value;
+				const descriptionInput =
+					document.getElementById('description-input').value;
+
+				// let changedTodo = createItem(
+				// 	titleInput,
+				// 	dateInput,
+				// 	priorityInput,
+				// 	descriptionInput
+				// );
+				// object.todos.push(changedTodo);
+				subObject.title = titleInput;
+				subObject.dueDate = dateInput;
+				subObject.priority = priorityInput;
+				subObject.description = descriptionInput;
+				deletePageElements();
+				loadPageElements(projects);
+				dialog.close();
+			});
 		});
 		subButtonContainer.appendChild(subButton2);
 
