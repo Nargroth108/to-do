@@ -22,7 +22,7 @@ export default function loadDialog() {
 	input1.setAttribute('id', 'title-input');
 	input1.setAttribute('name', 'title-input');
 	input1.setAttribute('type', 'text');
-	input1.setAttribute('required', 'required');
+	input1.setAttribute('required', 'true');
 	label1.appendChild(input1);
 
 	const label2 = document.createElement('label');
@@ -34,7 +34,7 @@ export default function loadDialog() {
 	input2.setAttribute('id', 'date-input');
 	input2.setAttribute('name', 'date-input');
 	input2.setAttribute('type', 'date');
-	input2.setAttribute('required', 'required');
+	input2.setAttribute('required', 'true');
 	label2.appendChild(input2);
 
 	const label3 = document.createElement('label');
@@ -46,7 +46,7 @@ export default function loadDialog() {
 	input3.setAttribute('id', 'priority-input');
 	input3.setAttribute('name', 'priority-input');
 	input3.setAttribute('type', 'text');
-	input3.setAttribute('required', 'required');
+	input3.setAttribute('required', 'true');
 	label3.appendChild(input3);
 
 	const option1 = document.createElement('option');
@@ -72,7 +72,7 @@ export default function loadDialog() {
 	input4.setAttribute('id', 'description-input');
 	input4.setAttribute('name', 'description-input');
 	input4.setAttribute('type', 'text');
-	input4.setAttribute('required', 'required');
+	input4.setAttribute('required', 'true');
 	label4.appendChild(input4);
 
 	const p = document.createElement('p');

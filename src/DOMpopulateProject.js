@@ -3,7 +3,7 @@ import EditIcon from './images/edit.svg';
 import DeleteIcon from './images/delete.svg';
 import CloseIcon from './images/up.svg';
 import { loadPageElements, deletePageElements } from './DOMpageManagement';
-import { createItem } from './todo-logic.js';
+import createItem from './todo-logic.js';
 import projects from './index.js';
 
 export default function populateProject(object) {
