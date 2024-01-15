@@ -17,6 +17,7 @@ function loadPageElements(storage) {
 		const titleInput = prompt('What do you want to name the new collection?');
 		let newProject = projectCreator(titleInput);
 		storage.push(newProject);
+		localStorage.setItem('projects', JSON.stringify(storage));
 		deletePageElements();
 		loadPageElements(storage);
 	});
@@ -38,6 +39,7 @@ function loadPageElements(storage) {
 				window.confirm('Are you sure you want to delete the whole project?')
 			) {
 				storage.splice(currentIndex, 1);
+				localStorage.setItem('projects', JSON.stringify(storage));
 				deletePageElements();
 				loadPageElements(storage);
 			}

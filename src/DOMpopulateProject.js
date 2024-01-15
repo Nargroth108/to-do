@@ -5,7 +5,6 @@ import CloseIcon from './up.svg';
 import { loadPageElements, deletePageElements } from './DOMpageManagement';
 import { createItem } from './todo-logic.js';
 import projects from './index.js';
-// import { addProject, addTodo } from './addProject-and-todo.js';
 
 export default function populateProject(object) {
 	const arrayOfObject = Object.values(object);
@@ -44,6 +43,7 @@ export default function populateProject(object) {
 				descriptionInput
 			);
 			object.todos.push(newTodo);
+			localStorage.setItem('projects', JSON.stringify(projects));
 			deletePageElements();
 			loadPageElements(projects);
 			dialog.close();
@@ -192,17 +192,11 @@ export default function populateProject(object) {
 				const descriptionInput =
 					document.getElementById('description-input').value;
 
-				// let changedTodo = createItem(
-				// 	titleInput,
-				// 	dateInput,
-				// 	priorityInput,
-				// 	descriptionInput
-				// );
-				// object.todos.push(changedTodo);
 				subObject.title = titleInput;
 				subObject.dueDate = dateInput;
 				subObject.priority = priorityInput;
 				subObject.description = descriptionInput;
+				localStorage.setItem('projects', JSON.stringify(projects));
 				deletePageElements();
 				loadPageElements(projects);
 				dialog.close();
@@ -219,6 +213,7 @@ export default function populateProject(object) {
 		subButton3.addEventListener('click', () => {
 			if (window.confirm('Are you sure you want to delete this item?')) {
 				object.todos.splice(indexOfSubobject, 1);
+				localStorage.setItem('projects', JSON.stringify(projects));
 				deletePageElements();
 				loadPageElements(projects);
 			}
