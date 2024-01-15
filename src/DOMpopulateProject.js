@@ -83,6 +83,8 @@ export default function populateProject(object) {
 			} else {
 				object.todos[indexOfSubobject].completed = true;
 			}
+
+			localStorage.setItem('projects', JSON.stringify(projects));
 		});
 		if (object.todos[indexOfSubobject].completed === false) {
 			subCheckbox.checked = false;
